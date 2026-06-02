@@ -43,3 +43,33 @@
 - find ~/devops-lab -type d | sort
 
 ---
+
+## Lesson 3 & 4 — 2026-06-02
+**Topic:** Git setup, SSH authentication, first GitHub push
+
+**What I did:**
+- Configured Git global identity
+- Generated ED25519 SSH key pair
+- Fixed accidental private key exposure (important lesson)
+- Set correct SSH permissions (600 private, 644 public)
+- Added public key to GitHub
+- Pushed first commit to github.com/Digensclub/devops-lab
+
+**What I learned:**
+- Private key = no extension = NEVER share
+- Public key = .pub = safe to share
+- SSH 600/644 permission rules
+- git add → git stage → git commit → git push workflow
+- git commit --amend fixes last commit message
+- $(date) expands in double quotes, not single quotes
+- Kali uses zsh not bash → always edit ~/.zshrc
+
+**Commands used:**
+- git config --global
+- ssh-keygen -t ed25519
+- chmod 600 / 644
+- ssh -T git@github.com
+- git remote add origin
+- git push -u origin main
+- git log --oneline
+
