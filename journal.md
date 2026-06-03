@@ -96,3 +96,25 @@
 - ss, lsof, grep -E, chmod, find, du, df, systemctl, journalctl
 - All flags understood in long form
 
+## Lesson 7-9 — 2026-06-03
+**Topic:** Jenkins, Pipelines, CI/CD, GitHub Webhook
+
+**What I built:**
+- First Jenkins freestyle job — ran shell commands
+- Declarative pipeline with 3 stages (Checkout, System Info, Verify Structure)
+- Connected Jenkins to GitHub repo via SCM
+- Exposed local Jenkins via ngrok tunnel
+- GitHub webhook auto-triggers Jenkins on every git push
+
+**Key concepts:**
+- Exit code 0 = success, non-zero = failure
+- Jenkinsfile lives in repo = pipeline is version controlled
+- -xe flags: -x prints commands, -e stops on failure
+- Webhook = GitHub tells Jenkins "something changed, go run"
+- ngrok = secure tunnel from internet to localhost
+
+**What CI/CD means in practice:**
+- Every git push automatically: pulls code → runs tests → reports result
+- No manual deployment steps
+- Broken code is caught immediately
+
