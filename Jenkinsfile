@@ -28,7 +28,7 @@ pipeline {
     }
     post {
         success {
-            echo 'Pipeline passed all the stages including security scan!'
+            echo 'Pipeline passed all the stages including security scan!!'
         }
         failure {
             echo 'Pipeline failed — check the logs above'
