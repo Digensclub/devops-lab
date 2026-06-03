@@ -631,7 +631,7 @@ lab                             # Now 'lab' takes you to your devops-lab
 env
 printenv PATH                   # See command search path
 
-# apt package management
+# apt package management 
 sudo apt update                 # Refresh package list
 sudo apt upgrade                # Upgrade installed packages
 sudo apt install packagename    # Install package
