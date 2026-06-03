@@ -22,7 +22,7 @@ pipeline {
         stage('Verify Structure') {
             steps {
                 echo 'Checking devops-lab structure...'
-                sh 'find . -type f | sort'
+                sh 'find . -not -path "./.git/*" -type f | sort'
             }
         }
     }
