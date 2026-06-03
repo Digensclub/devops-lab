@@ -73,3 +73,26 @@
 - git push -u origin main
 - git log --oneline
 
+
+## Lesson 5-6 — 2026-06-02
+**Topic:** Linux filesystem, flags deep dive, process investigation
+
+**Key findings on my machine:**
+- Jenkins running on port 8080 (PID 1069, java process, jenkins user)
+- SSH server installed but disabled (correct — only connect OUT not IN)
+- postgres and jenkins users have /bin/bash (can log in — audit later)
+- MySQL, PostgreSQL, Redis, OpenVAS all installed
+
+**Critical concepts learned:**
+- /etc=configs, /var=runtime data, /proc=virtual kernel window, /tmp=cleared on reboot
+- MemAvailable not MemFree = true available RAM
+- ss --listen --tcp --numeric --processes = open ports
+- lsof -i :PORT = what owns a port
+- 2>/dev/null = discard errors (/dev/null = Linux black hole)
+- Single quotes = no expansion, double quotes = expand variables
+- File descriptors: 0=stdin 1=stdout 2=stderr
+
+**Commands mastered:**
+- ss, lsof, grep -E, chmod, find, du, df, systemctl, journalctl
+- All flags understood in long form
+
