@@ -4,19 +4,19 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Code checked out by Jenkins automatically ...'
-                sh 'pwd'
-                sh 'ls -la'
+                sh 'pwd && ls -la'
             }
         }
         stage('System Info') {
             steps {
                 echo 'Gathering System Information...'
-                sh 'whoami'
-                sh 'git --version'
-                sh 'docker --version'
-                sh 'uname -a'
-                sh 'df -h'
-                sh 'free -m'
+                sh 'whoami && id && git --version && docker --version && uname -a && df -h && free -m'
+            }
+        }
+        stage('Security Scan') {
+            steps{
+                echo 'Running Trivy security scan...'
+                sh 'trivy fs --scanners secret,misconfig --exit-code 0 .'
             }
         }
         stage('Verify Structure') {
@@ -28,7 +28,7 @@ pipeline {
     }
     post {
         success {
-            echo 'Pipeline completed successfully!'
+            echo 'Pipeline passed all the stages including security scan!'
         }
         failure {
             echo 'Pipeline failed — check the logs above'
