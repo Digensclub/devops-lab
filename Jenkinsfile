@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_IMAGE = "digensclub/devops-lab-webapp"
+        DOCKER_TAG = "${env.BUILD_NUMBER}"
     }
 
     stages {
