@@ -118,3 +118,33 @@
 - No manual deployment steps
 - Broken code is caught immediately
 
+## Lesson 10-11 — 2026-06-03
+**Topic:** Security scanning, Docker foundations
+
+**What I learned:**
+- Trivy scans repos for secrets and misconfigs — runs inside Jenkins pipeline
+- git-secrets installs hooks to block commits containing secrets
+- --exit-code 0 means Trivy reports findings but doesn't fail the pipeline (use 1 to enforce blocking)
+- Docker Desktop runs containers inside a lightweight VM (3.8GB RAM allocated)
+- Client vs Server version difference in Docker Desktop setup
+- Virtual environments NOT needed inside containers — Docker itself provides isolation
+- venv useful locally, Docker image = isolated environment by design
+
+**Docker core concepts:**
+- IMAGE = blueprint (like a class)
+- CONTAINER = running instance (like an object)
+- Dockerfile = build instructions
+- .dockerignore = exclude files from image (like .gitignore)
+- One image can run many containers simultaneously
+
+**My existing Docker work found:**
+- cloud-mini-project:latest — built previously
+- digensclub/data-middleware:latest — pushed to Docker Hub previously
+
+**Commands learned:**
+- docker images
+- docker ps / docker ps --all
+- docker history imagename
+- docker run hello-world
+- docker version / docker info
+
