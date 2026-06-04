@@ -53,7 +53,6 @@ pipeline {
                 echo "Image Pushed successfully: ${DOCKER_IMAGE}:${DOCKER_TAG}"
                 sh 'docker images | grep devops-lab-webapp'
             }
-
         }
     }
     post {
