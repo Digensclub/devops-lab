@@ -40,8 +40,11 @@ pipeline {
                     ]
                 )
                 {
-                    sh 'mkdir -p ~/.docker && echo "{ \\"credsStore\\": \\"\\" }" > ~/.docker/config.json'
-                    sh 'echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin'
+                    sh '''
+                    mkdir -p /var/lib/jenkins/.docker
+                    echo '{ "auths":{}, "credsStore":"", "credHelpers":{ "docker.io":"" } }' > /var/lib/jenkins/.docker/config.json
+                    '''
+                    sh 'echo $DOCKER_PASS | docker --config /var/lib/jenkins/.docker login --username $DOCKER_USER --password-stdin'
                     sh "docker push ${DOCKER_IMAGE}:${DOCKER_TAG}"
                     sh "docker push ${DOCKER_IMAGE}:latest"
                 }
