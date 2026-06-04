@@ -148,3 +148,40 @@
 - docker run hello-world
 - docker version / docker info
 
+## Lesson 11-12 — 2026-06-04
+**Topic:** Docker deep dive + full CI/CD pipeline
+
+**What I built:**
+- Python web app containerised from scratch
+- Dockerfile with FROM, LABEL, WORKDIR, COPY, EXPOSE, CMD
+- Image built, run, explored from inside, stopped, started
+- Pushed to Docker Hub with versioned tags
+- Jenkins pipeline: checkout → security scan → build → push → verify
+- Every git push now automatically builds and pushes a new versioned image
+
+**Key concepts:**
+- Container = isolated Linux environment (Debian inside Kali)
+- slim image = minimal tools = small attack surface (28MB RAM usage)
+- Image layers = cached = fast rebuilds
+- v{BUILD_NUMBER} = automatic versioning
+- Pin production to specific versions, never latest
+- withCredentials = secrets injected at runtime, never in code
+- docker exec -it = shell inside running container
+- 0.0.0.0:8000->8000/tcp = host port maps to container port
+
+**Commands mastered:**
+- docker build --tag
+- docker run --detach --publish --name
+- docker exec --interactive --tty
+- docker logs --follow
+- docker stats --no-stream
+- docker stop / start / rm
+- docker push / pull
+- docker images / docker ps --all
+- docker tag
+
+**Pipeline fixes learned:**
+- Double quotes in sh "" expand Jenkins variables
+- Single quotes in sh '' keep shell variables for bash
+- BUILD_NUMBER must be set via script{} block in environment
+- Jenkins needs docker group membership: usermod -aG docker jenkins
