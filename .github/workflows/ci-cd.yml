@@ -28,10 +28,10 @@ jobs:
         needs: security-scan
         steps:
             - name: Checkout code
-              uses: actions/checkout@4
+              uses: actions/checkout@v4
 
             - name: Login to Docker Hub
-              uses: docker/login-action@03
+              uses: docker/login-action@0v3
               with:
                 username: ${{ secrets.DOCKERHUB_USERNAME }}
                 password: ${{ secrets.DOCKERHUB_TOKEN }}
