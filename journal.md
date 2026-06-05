@@ -184,4 +184,4 @@
 - Double quotes in sh "" expand Jenkins variables
 - Single quotes in sh '' keep shell variables for bash
 - BUILD_NUMBER must be set via script{} block in environment
-- Jenkins needs docker group membership: usermod -aG docker jenkins
+- Jenkins needs docker group membership: usermod -aG docker jenkins.
