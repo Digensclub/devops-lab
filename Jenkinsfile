@@ -57,6 +57,7 @@ pipeline {
             }
         }
     }
+    
     post {
         success {
             echo "Pipeline complete! Image available at: docker.io/${DOCKER_IMAGE}:${DOCKER_TAG}"
