@@ -14,6 +14,7 @@ class Handler(BaseHTTPRequestHandler):
             "timestamp": str(datetime.datetime.now()),
             "path": self.path,
             "owner": "digensclub"
+
         }
         self.wfile.write(json.dumps(response, indent=2).encode())
 
