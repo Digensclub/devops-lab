@@ -185,3 +185,28 @@
 - Single quotes in sh '' keep shell variables for bash
 - BUILD_NUMBER must be set via script{} block in environment
 - Jenkins needs docker group membership: usermod -aG docker jenkins.
+
+## Lesson 13 — 2026-06-07
+**Topic:** Docker Compose
+
+**What I built:**
+- 3-service app: nginx (reverse proxy) + webapp (Python) + Redis (cache)
+- nginx as sole public entry point on port 8081
+- webapp and redis internal only — never directly exposed
+- Redis hit counter proving inter-container communication
+- Compose DNS — containers find each other by service name
+
+**Key concepts:**
+- docker-compose.yml defines entire multi-container app in one file
+- depends_on = startup order management
+- networks = isolated private network between services
+- volumes :ro = read-only mount (security best practice)
+- conf.d/default.conf = correct nginx config mount path for nginx:alpine
+- version field obsolete in modern Compose — remove it
+
+**Commands mastered:**
+- docker compose up --build --detach
+- docker compose down
+- docker compose ps
+- docker compose exec service command
+- docker compose logs --follow
